@@ -1,26 +1,181 @@
+/* globals.css */
+/* Tailwind CSS v4 + ダークモード対応 */
+
 @import "tailwindcss";
 
+/* ========================================
+   CSS 変数（ライト/ダークモード）
+   ======================================== */
+
 :root {
+  /* 背景色 */
   --background: #ffffff;
-  --foreground: #171717;
+  --background-secondary: #f4f4f5;
+
+  /* テキスト色 */
+  --foreground: #09090b;
+  --foreground-muted: #71717a;
+
+  /* ボーダー */
+  --border: #e4e4e7;
+  --border-hover: #a1a1aa;
+
+  /* アクセントカラー */
+  --accent: #3b82f6;
+  --accent-foreground: #ffffff;
+
+  /* カード */
+  --card: #ffffff;
+  --card-hover: #fafafa;
 }
+
+.dark {
+  /* 背景色 */
+  --background: #09090b;
+  --background-secondary: #18181b;
+
+  /* テキスト色 */
+  --foreground: #fafafa;
+  --foreground-muted: #a1a1aa;
+
+  /* ボーダー */
+  --border: #27272a;
+  --border-hover: #52525b;
+
+  /* アクセントカラー */
+  --accent: #60a5fa;
+  --accent-foreground: #09090b;
+
+  /* カード */
+  --card: #18181b;
+  --card-hover: #27272a;
+}
+
+/* ========================================
+   Tailwind テーマ設定（v4）
+   ======================================== */
 
 @theme inline {
+  /* カラー */
   --color-background: var(--background);
+  --color-background-secondary: var(--background-secondary);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-foreground-muted: var(--foreground-muted);
+  --color-border: var(--border);
+  --color-border-hover: var(--border-hover);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-card: var(--card);
+  --color-card-hover: var(--card-hover);
+
+  /* フォント */
+  --font-sans: var(--font-geist-sans), system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ========================================
+   ベーススタイル
+   ======================================== */
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+}
+
+/* ========================================
+   タイポグラフィ（prose スタイル）
+   ======================================== */
+
+.prose {
+  --tw-prose-body: var(--foreground);
+  --tw-prose-headings: var(--foreground);
+  --tw-prose-links: var(--accent);
+  --tw-prose-code: var(--foreground);
+  --tw-prose-pre-bg: var(--background-secondary);
+  --tw-prose-pre-code: var(--foreground);
+  --tw-prose-hr: var(--border);
+  --tw-prose-quotes: var(--foreground-muted);
+  --tw-prose-quote-borders: var(--border);
+}
+
+/* コードブロック */
+.prose pre {
+  background-color: var(--background-secondary);
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+}
+
+.prose code {
+  background-color: var(--background-secondary);
+  padding: 0.125rem 0.25rem;
+  border-radius: 0.25rem;
+  font-size: 0.875em;
+}
+
+.prose pre code {
+  background-color: transparent;
+  padding: 0;
+}
+
+/* リンク */
+.prose a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.prose a:hover {
+  opacity: 0.8;
+}
+
+/* ========================================
+   カスタムユーティリティ
+   ======================================== */
+
+/* フォーカススタイル */
+.focus-ring {
+  outline: none;
+}
+
+.focus-ring:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* スクロールバー（ダークモード対応） */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-hover);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--foreground-muted);
+}
+
+/* ========================================
+   アニメーション
+   ======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

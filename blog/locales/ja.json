@@ -1,0 +1,71 @@
+{
+  "site": {
+    "name": "Portfolio",
+    "description": "ポートフォリオ & ブログ"
+  },
+  "nav": {
+    "home": "ホーム",
+    "projects": "プロジェクト",
+    "blog": "ブログ",
+    "about": "About",
+    "contact": "お問い合わせ"
+  },
+  "home": {
+    "hero": {
+      "greeting": "こんにちは",
+      "title": "Web Developer",
+      "description": "Webアプリケーション開発に情熱を注いでいます。",
+      "cta": {
+        "projects": "プロジェクトを見る",
+        "blog": "ブログを読む",
+        "contact": "お問い合わせ"
+      }
+    },
+    "featuredProjects": {
+      "title": "Featured Projects",
+      "viewAll": "すべて見る"
+    },
+    "latestPosts": {
+      "title": "Latest Posts",
+      "viewAll": "すべて見る"
+    }
+  },
+  "projects": {
+    "title": "プロジェクト",
+    "description": "これまでに取り組んだプロジェクト一覧",
+    "viewProject": "詳細を見る",
+    "visitSite": "サイトを見る",
+    "viewSource": "ソースコード"
+  },
+  "blog": {
+    "title": "ブログ",
+    "description": "技術記事やメモ",
+    "readMore": "続きを読む",
+    "readingTime": "{minutes}分で読めます",
+    "tags": "タグ",
+    "allPosts": "すべての記事",
+    "noPosts": "記事がありません"
+  },
+  "about": {
+    "title": "About",
+    "description": "自己紹介"
+  },
+  "contact": {
+    "title": "お問い合わせ",
+    "description": "お気軽にご連絡ください"
+  },
+  "common": {
+    "backToHome": "ホームに戻る",
+    "publishedAt": "公開日",
+    "updatedAt": "更新日",
+    "share": "シェア"
+  },
+  "footer": {
+    "copyright": "All rights reserved."
+  },
+  "notFound": {
+    "title": "ページが見つかりません",
+    "description": "お探しのページは存在しないか、移動した可能性があります。",
+    "backToHome": "ホームに戻る"
+  }
+}

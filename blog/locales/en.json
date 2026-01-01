@@ -1,0 +1,71 @@
+{
+  "site": {
+    "name": "Portfolio",
+    "description": "Portfolio & Blog"
+  },
+  "nav": {
+    "home": "Home",
+    "projects": "Projects",
+    "blog": "Blog",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "home": {
+    "hero": {
+      "greeting": "Hello",
+      "title": "Web Developer",
+      "description": "Passionate about building web applications.",
+      "cta": {
+        "projects": "View Projects",
+        "blog": "Read Blog",
+        "contact": "Get in Touch"
+      }
+    },
+    "featuredProjects": {
+      "title": "Featured Projects",
+      "viewAll": "View All"
+    },
+    "latestPosts": {
+      "title": "Latest Posts",
+      "viewAll": "View All"
+    }
+  },
+  "projects": {
+    "title": "Projects",
+    "description": "A collection of my work",
+    "viewProject": "View Project",
+    "visitSite": "Visit Site",
+    "viewSource": "View Source"
+  },
+  "blog": {
+    "title": "Blog",
+    "description": "Technical articles and notes",
+    "readMore": "Read More",
+    "readingTime": "{minutes} min read",
+    "tags": "Tags",
+    "allPosts": "All Posts",
+    "noPosts": "No posts found"
+  },
+  "about": {
+    "title": "About",
+    "description": "About me"
+  },
+  "contact": {
+    "title": "Contact",
+    "description": "Get in touch"
+  },
+  "common": {
+    "backToHome": "Back to Home",
+    "publishedAt": "Published",
+    "updatedAt": "Updated",
+    "share": "Share"
+  },
+  "footer": {
+    "copyright": "All rights reserved."
+  },
+  "notFound": {
+    "title": "Page Not Found",
+    "description": "The page you are looking for does not exist or has been moved.",
+    "backToHome": "Back to Home"
+  }
+}
