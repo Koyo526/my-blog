@@ -3,7 +3,7 @@
 
 'use client'
 
-import { useLocale } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 import { motion } from 'framer-motion'
 import type { Achievement } from '@/types/about'
 
@@ -52,8 +52,28 @@ function AwardIcon({ className }: { className?: string }) {
   )
 }
 
+function ExternalLinkIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+    >
+      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+      <polyline points="15 3 21 3 21 9" />
+      <line x1="10" x2="21" y1="14" y2="3" />
+    </svg>
+  )
+}
+
 export function AchievementCard({ achievement, index }: AchievementCardProps) {
   const locale = useLocale() as 'ja' | 'en'
+  const t = useTranslations('about')
 
   const Icon = achievement.type === 'certification' ? CertificationIcon : AwardIcon
   const iconColor =
@@ -61,31 +81,8 @@ export function AchievementCard({ achievement, index }: AchievementCardProps) {
       ? 'text-timeline-work'
       : 'text-timeline-current'
 
-  const CardContent = (
-    <>
-      {/* アイコン */}
-      <div className={`${iconColor} mb-3`}>
-        <Icon className="w-8 h-8" />
-      </div>
-
-      {/* 名称 */}
-      <h3 className="font-semibold mb-1">{achievement.name[locale]}</h3>
-
-      {/* 発行元 */}
-      <p className="text-sm text-foreground-muted mb-2">
-        {achievement.issuer[locale]}
-      </p>
-
-      {/* 日付 */}
-      <p className="text-xs text-foreground-muted">{achievement.date}</p>
-    </>
-  )
-
-  const cardClasses = `
-    p-4 rounded-lg border border-border bg-card
-    hover:border-border-hover transition-colors
-    ${achievement.url ? 'cursor-pointer' : ''}
-  `
+  const cardClasses =
+    'p-4 rounded-lg border border-border bg-card hover:border-border-hover transition-colors'
 
   return (
     <motion.div
@@ -94,18 +91,36 @@ export function AchievementCard({ achievement, index }: AchievementCardProps) {
       viewport={{ once: true }}
       transition={{ duration: 0.4, delay: index * 0.1 }}
     >
-      {achievement.url ? (
-        <a
-          href={achievement.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={`block ${cardClasses}`}
-        >
-          {CardContent}
-        </a>
-      ) : (
-        <div className={cardClasses}>{CardContent}</div>
-      )}
+      <div className={cardClasses}>
+        {/* アイコン */}
+        <div className={`${iconColor} mb-3`}>
+          <Icon className="w-8 h-8" />
+        </div>
+
+        {/* 名称 */}
+        <h3 className="font-semibold mb-1">{achievement.name[locale]}</h3>
+
+        {/* 発行元 */}
+        <p className="text-sm text-foreground-muted mb-2">
+          {achievement.issuer[locale]}
+        </p>
+
+        {/* 日付 */}
+        <p className="text-xs text-foreground-muted mb-3">{achievement.date}</p>
+
+        {/* 認証情報リンク */}
+        {achievement.url && (
+          <a
+            href={achievement.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1 text-sm text-accent hover:underline"
+          >
+            {t('achievements.viewCredential')}
+            <ExternalLinkIcon className="w-3.5 h-3.5" />
+          </a>
+        )}
+      </div>
     </motion.div>
   )
 }

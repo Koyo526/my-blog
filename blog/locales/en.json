@@ -13,8 +13,8 @@
   "home": {
     "hero": {
       "greeting": "Hello",
-      "title": "Welcome to Momiji.dev",
-      "description": "Passionate about building web applications.",
+      "title": "Momiji.dev",
+      "description": "Software Engineer, Photographer, and Runner.",
       "cta": {
         "projects": "View Projects",
         "blog": "Read Blog",
@@ -60,7 +60,8 @@
     },
     "achievements": {
       "title": "Certifications & Awards",
-      "subtitle": "My certifications and achievements"
+      "subtitle": "My certifications and achievements",
+      "viewCredential": "View Credential"
     }
   },
   "contact": {

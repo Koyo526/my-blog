@@ -13,7 +13,7 @@
   "home": {
     "hero": {
       "greeting": "こんにちは",
-      "title": "Welcome to Momiji.dev",
+      "title": "Momiji.dev",
       "description": "Software EngineerとPhotographerとRunnerの三足のわらじです",
       "cta": {
         "projects": "プロジェクトを見る",
@@ -60,7 +60,8 @@
     },
     "achievements": {
       "title": "資格・受賞歴",
-      "subtitle": "取得した資格と受賞歴"
+      "subtitle": "取得した資格と受賞歴",
+      "viewCredential": "認証情報を表示"
     }
   },
   "contact": {
