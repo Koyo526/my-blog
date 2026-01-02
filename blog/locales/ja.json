@@ -28,6 +28,9 @@
     "latestPosts": {
       "title": "Latest Posts",
       "viewAll": "すべて見る"
+    },
+    "visitorCount": {
+      "label": "累計訪問者数"
     }
   },
   "projects": {

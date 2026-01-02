@@ -28,6 +28,9 @@
     "latestPosts": {
       "title": "Latest Posts",
       "viewAll": "View All"
+    },
+    "visitorCount": {
+      "label": "Total Visitors"
     }
   },
   "projects": {
