@@ -1,6 +1,6 @@
 {
   "site": {
-    "name": "Portfolio",
+    "name": "Momiji.dev",
     "description": "ポートフォリオ & ブログ"
   },
   "nav": {
@@ -13,8 +13,8 @@
   "home": {
     "hero": {
       "greeting": "こんにちは",
-      "title": "Web Developer",
-      "description": "Webアプリケーション開発に情熱を注いでいます。",
+      "title": "Welcome to Momiji.dev",
+      "description": "Software EngineerとPhotographerとRunnerの三足のわらじです",
       "cta": {
         "projects": "プロジェクトを見る",
         "blog": "ブログを読む",
@@ -48,7 +48,20 @@
   },
   "about": {
     "title": "About",
-    "description": "自己紹介"
+    "description": "自己紹介",
+    "intro": "Web開発者として活動しています。フロントエンドを中心に、モダンなWebアプリケーションの開発に取り組んでいます。",
+    "timeline": {
+      "title": "経歴",
+      "subtitle": "職歴と学歴",
+      "work": "職歴",
+      "education": "学歴",
+      "present": "現在",
+      "current": "現職"
+    },
+    "achievements": {
+      "title": "資格・受賞歴",
+      "subtitle": "取得した資格と受賞歴"
+    }
   },
   "contact": {
     "title": "お問い合わせ",

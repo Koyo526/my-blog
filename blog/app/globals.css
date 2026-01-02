@@ -27,6 +27,11 @@
   /* カード */
   --card: #ffffff;
   --card-hover: #fafafa;
+
+  /* タイムライン */
+  --timeline-work: #3b82f6;
+  --timeline-education: #10b981;
+  --timeline-current: #f59e0b;
 }
 
 .dark {
@@ -49,6 +54,11 @@
   /* カード */
   --card: #18181b;
   --card-hover: #27272a;
+
+  /* タイムライン */
+  --timeline-work: #60a5fa;
+  --timeline-education: #34d399;
+  --timeline-current: #fbbf24;
 }
 
 /* ========================================
@@ -67,6 +77,9 @@
   --color-accent-foreground: var(--accent-foreground);
   --color-card: var(--card);
   --color-card-hover: var(--card-hover);
+  --color-timeline-work: var(--timeline-work);
+  --color-timeline-education: var(--timeline-education);
+  --color-timeline-current: var(--timeline-current);
 
   /* フォント */
   --font-sans: var(--font-geist-sans), system-ui, sans-serif;
@@ -169,6 +182,21 @@ body {
 /* ========================================
    アニメーション
    ======================================== */
+
+/* タイムライン - 現在ドットのパルスアニメーション */
+@keyframes timeline-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 var(--timeline-current);
+  }
+  50% {
+    box-shadow: 0 0 0 8px transparent;
+  }
+}
+
+.timeline-pulse {
+  animation: timeline-pulse 2s ease-in-out infinite;
+}
 
 @media (prefers-reduced-motion: reduce) {
   *,

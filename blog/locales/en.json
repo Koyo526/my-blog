@@ -1,6 +1,6 @@
 {
   "site": {
-    "name": "Portfolio",
+    "name": "Momiji.dev",
     "description": "Portfolio & Blog"
   },
   "nav": {
@@ -13,7 +13,7 @@
   "home": {
     "hero": {
       "greeting": "Hello",
-      "title": "Web Developer",
+      "title": "Welcome to Momiji.dev",
       "description": "Passionate about building web applications.",
       "cta": {
         "projects": "View Projects",
@@ -48,7 +48,20 @@
   },
   "about": {
     "title": "About",
-    "description": "About me"
+    "description": "About me",
+    "intro": "I am a web developer working on modern web application development, focusing on frontend technologies.",
+    "timeline": {
+      "title": "Career",
+      "subtitle": "Work experience and education",
+      "work": "Work",
+      "education": "Education",
+      "present": "Present",
+      "current": "Current"
+    },
+    "achievements": {
+      "title": "Certifications & Awards",
+      "subtitle": "My certifications and achievements"
+    }
   },
   "contact": {
     "title": "Contact",

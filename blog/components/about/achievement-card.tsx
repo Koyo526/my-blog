@@ -1,0 +1,111 @@
+// components/about/achievement-card.tsx
+// 資格・受賞カード
+
+'use client'
+
+import { useLocale } from 'next-intl'
+import { motion } from 'framer-motion'
+import type { Achievement } from '@/types/about'
+
+type AchievementCardProps = {
+  achievement: Achievement
+  index: number
+}
+
+function CertificationIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+    >
+      <circle cx="12" cy="8" r="6" />
+      <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11" />
+    </svg>
+  )
+}
+
+function AwardIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+    >
+      <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6" />
+      <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18" />
+      <path d="M4 22h16" />
+      <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22" />
+      <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22" />
+      <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z" />
+    </svg>
+  )
+}
+
+export function AchievementCard({ achievement, index }: AchievementCardProps) {
+  const locale = useLocale() as 'ja' | 'en'
+
+  const Icon = achievement.type === 'certification' ? CertificationIcon : AwardIcon
+  const iconColor =
+    achievement.type === 'certification'
+      ? 'text-timeline-work'
+      : 'text-timeline-current'
+
+  const CardContent = (
+    <>
+      {/* アイコン */}
+      <div className={`${iconColor} mb-3`}>
+        <Icon className="w-8 h-8" />
+      </div>
+
+      {/* 名称 */}
+      <h3 className="font-semibold mb-1">{achievement.name[locale]}</h3>
+
+      {/* 発行元 */}
+      <p className="text-sm text-foreground-muted mb-2">
+        {achievement.issuer[locale]}
+      </p>
+
+      {/* 日付 */}
+      <p className="text-xs text-foreground-muted">{achievement.date}</p>
+    </>
+  )
+
+  const cardClasses = `
+    p-4 rounded-lg border border-border bg-card
+    hover:border-border-hover transition-colors
+    ${achievement.url ? 'cursor-pointer' : ''}
+  `
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.4, delay: index * 0.1 }}
+    >
+      {achievement.url ? (
+        <a
+          href={achievement.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`block ${cardClasses}`}
+        >
+          {CardContent}
+        </a>
+      ) : (
+        <div className={cardClasses}>{CardContent}</div>
+      )}
+    </motion.div>
+  )
+}
