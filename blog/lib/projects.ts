@@ -1,7 +1,7 @@
 // lib/projects.ts
 // プロジェクトの取得API
 
-import fs from 'fs'
+import { promises as fs } from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
 import { validateProjectFrontmatter } from './schemas/project'
@@ -11,22 +11,40 @@ import type { Project } from '@/types/content'
 
 const CONTENT_DIR = path.join(process.cwd(), 'content', 'projects')
 
+// モジュールレベルキャッシュ: サーバーインスタンス内で再利用
+const projectsCache = new Map<Locale, { data: Project[]; timestamp: number }>()
+const CACHE_TTL = 60 * 1000 // 1分（ISRと組み合わせて使用）
+
 /**
- * 全プロジェクトを取得（ソート済み）
+ * 全プロジェクトを取得（ソート済み、キャッシュ付き）
  */
 export async function getAllProjects(locale: Locale): Promise<Project[]> {
+  // キャッシュチェック（本番環境のみ）
+  if (!env.isDevelopment) {
+    const cached = projectsCache.get(locale)
+    if (cached && Date.now() - cached.timestamp < CACHE_TTL) {
+      return cached.data
+    }
+  }
+
   const dir = path.join(CONTENT_DIR, locale)
 
-  if (!fs.existsSync(dir)) {
+  // ディレクトリ存在チェック（非同期）
+  try {
+    await fs.access(dir)
+  } catch {
     return []
   }
 
-  const files = fs.readdirSync(dir).filter((f) => f.endsWith('.mdx'))
+  // ファイル一覧取得（非同期）
+  const allFiles = await fs.readdir(dir)
+  const files = allFiles.filter((f) => f.endsWith('.mdx'))
 
-  const projects = files.map((file) => {
+  // ファイル読み込み（並列非同期）
+  const projectPromises = files.map(async (file) => {
     const slug = file.replace(/\.mdx$/, '')
     const filePath = path.join(dir, file)
-    const fileContent = fs.readFileSync(filePath, 'utf-8')
+    const fileContent = await fs.readFile(filePath, 'utf-8')
     const { data, content } = matter(fileContent)
 
     const frontmatter = validateProjectFrontmatter(data)
@@ -39,6 +57,8 @@ export async function getAllProjects(locale: Locale): Promise<Project[]> {
     }
   })
 
+  const projects = await Promise.all(projectPromises)
+
   // draft を除外（開発環境以外）
   const filtered = projects.filter((project) => {
     if (env.isDevelopment) return true
@@ -46,7 +66,7 @@ export async function getAllProjects(locale: Locale): Promise<Project[]> {
   })
 
   // ソート: pinned優先 → 日付降順
-  return filtered.sort((a, b) => {
+  const sorted = filtered.sort((a, b) => {
     if (a.frontmatter.pinned && !b.frontmatter.pinned) return -1
     if (!a.frontmatter.pinned && b.frontmatter.pinned) return 1
     return (
@@ -54,6 +74,13 @@ export async function getAllProjects(locale: Locale): Promise<Project[]> {
       new Date(a.frontmatter.publishedAt).getTime()
     )
   })
+
+  // キャッシュに保存（本番環境のみ）
+  if (!env.isDevelopment) {
+    projectsCache.set(locale, { data: sorted, timestamp: Date.now() })
+  }
+
+  return sorted
 }
 
 /**
@@ -65,11 +92,14 @@ export async function getProjectBySlug(
 ): Promise<Project | null> {
   const filePath = path.join(CONTENT_DIR, locale, `${slug}.mdx`)
 
-  if (!fs.existsSync(filePath)) {
+  // ファイル存在チェック（非同期）
+  try {
+    await fs.access(filePath)
+  } catch {
     return null
   }
 
-  const fileContent = fs.readFileSync(filePath, 'utf-8')
+  const fileContent = await fs.readFile(filePath, 'utf-8')
   const { data, content } = matter(fileContent)
 
   const frontmatter = validateProjectFrontmatter(data)

@@ -4,4 +4,5 @@
 export { Hero } from './hero'
 export { FeaturedProjects } from './featured-projects'
 export { VisitorCount } from './visitor-count'
-export { Board } from './board'
+export { VisitorCountSkeleton } from './visitor-count-skeleton'
+export { Board, BoardSkeleton } from './board'

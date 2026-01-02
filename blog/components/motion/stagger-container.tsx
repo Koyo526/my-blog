@@ -18,14 +18,14 @@ const containerVariants: Variants = {
     opacity: 1,
     transition: {
       staggerChildren: staggerDelay,
-      delayChildren: 0.1,
+      delayChildren: 0.05, // 0.1 → 0.05 に短縮（LCP改善）
     },
   }),
 }
 
 export function StaggerContainer({
   children,
-  staggerDelay = 0.1,
+  staggerDelay = 0.05, // 0.1 → 0.05 に短縮
   className,
 }: StaggerContainerProps) {
   return (
@@ -44,7 +44,7 @@ export function StaggerContainer({
 // Viewport に入ったときにアニメーション
 export function StaggerContainerWhenVisible({
   children,
-  staggerDelay = 0.1,
+  staggerDelay = 0.05, // 0.1 → 0.05 に短縮
   className,
 }: StaggerContainerProps) {
   return (
@@ -63,12 +63,12 @@ export function StaggerContainerWhenVisible({
 
 // StaggerContainer の子要素用
 const itemVariants: Variants = {
-  hidden: { opacity: 0, y: 20 },
+  hidden: { opacity: 0, y: 15 }, // y: 20 → 15 に短縮
   visible: {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.5,
+      duration: 0.35, // 0.5 → 0.35 に短縮
       ease: [0.25, 0.1, 0.25, 1],
     },
   },

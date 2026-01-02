@@ -19,13 +19,13 @@ export function Hero() {
           </h1>
         </SlideUp>
 
-        <SlideUp delay={0.1}>
+        <SlideUp delay={0.05}>
           <p className="text-lg md:text-xl text-foreground-muted max-w-2xl">
             {t('hero.description')}
           </p>
         </SlideUp>
 
-        <SlideUp delay={0.2}>
+        <SlideUp delay={0.1}>
           <div className="flex flex-wrap gap-4 pt-4">
             <Link
               href="/projects"

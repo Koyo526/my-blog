@@ -20,8 +20,11 @@ export async function GET() {
     `
 
     const response = NextResponse.json({ comments: result.rows })
-    // キャッシュ無効化
-    response.headers.set('Cache-Control', 'no-store')
+    // stale-while-revalidate: 60秒キャッシュ、その後300秒間はstaleを返しつつバックグラウンド更新
+    response.headers.set(
+      'Cache-Control',
+      'public, s-maxage=60, stale-while-revalidate=300'
+    )
     return response
   } catch (error) {
     console.error('Failed to fetch comments:', error)

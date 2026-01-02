@@ -17,8 +17,8 @@ type SlideUpProps = {
 export function SlideUp({
   children,
   delay = 0,
-  duration = 0.6,
-  distance = 30,
+  duration = 0.4, // 0.6 → 0.4 に短縮（LCP改善）
+  distance = 20,  // 30 → 20 に短縮（より素早く表示）
   className,
 }: SlideUpProps) {
   return (
@@ -41,8 +41,8 @@ export function SlideUp({
 export function SlideUpWhenVisible({
   children,
   delay = 0,
-  duration = 0.6,
-  distance = 30,
+  duration = 0.4, // 0.6 → 0.4 に短縮
+  distance = 20,  // 30 → 20 に短縮
   className,
 }: SlideUpProps) {
   return (
