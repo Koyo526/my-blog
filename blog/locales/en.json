@@ -1,6 +1,6 @@
 {
   "site": {
-    "name": "Momiji.dev",
+    "name": "Momiji.dev🍁",
     "description": "Portfolio & Blog"
   },
   "nav": {
@@ -13,7 +13,7 @@
   "home": {
     "hero": {
       "greeting": "Hello",
-      "title": "Momiji.dev",
+      "title": "Momiji.dev🍁",
       "description": "Software Engineer, Photographer, and Runner.",
       "cta": {
         "projects": "View Projects",

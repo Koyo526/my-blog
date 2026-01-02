@@ -24,7 +24,7 @@ export function Header() {
             href={`/${lang}/`}
             className="text-xl font-bold hover:opacity-80 transition-opacity focus-ring rounded"
           >
-            Momiji.dev
+            Momiji.dev🍁
           </Link>
 
           {/* Desktop Navigation */}
