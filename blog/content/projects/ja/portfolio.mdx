@@ -1,24 +1,67 @@
 ---
 name: "ポートフォリオサイト"
-summary: "Next.js と Tailwind CSS で構築した個人ポートフォリオサイト"
-tech: ["Next.js", "TypeScript", "Tailwind CSS", "MDX"]
-publishedAt: "2024-01-01"
-github: "https://github.com/yourgithub/portfolio"
-url: "https://yoursite.com"
+summary: "Next.js 16 と Tailwind CSS v4 で構築した個人ポートフォリオサイト"
+tech: ["Next.js", "React", "TypeScript", "Tailwind CSS", "MDX", "Framer Motion"]
+publishedAt: "2026-01-01"
+github: "https://github.com/Koyo526/my-blog"
+url: "https://localhost:3000"
 featured: true
 ---
 
 ## 概要
 
 このポートフォリオサイトは、モダンなWeb技術を使用して構築しました。
+`年末年始駆動開発`で作成したプロジェクトです。
 
-### 特徴
+## 主な機能
 
-- **多言語対応** - 日本語と英語をサポート
-- **ダークモード** - システム設定に連動
-- **MDX** - Markdownで記事を管理
-- **レスポンシブ** - モバイルフレンドリー
+### 多言語対応（i18n）
+- **next-intl** を使用した日本語/英語の切り替え
+- URLベースのルーティング（`/ja/`, `/en/`）
+- 翻訳ファイルによるコンテンツ管理
 
-### 技術詳細
+### ダークモード
+- **next-themes** によるテーマ切り替え
+- システム設定との連動
+- 手動切り替えボタン
 
-Next.js の App Router を使用し、静的サイト生成（SSG）で高速なパフォーマンスを実現しています。
+### タイムライン経歴表示
+- 職歴と学歴を時系列で表示
+- 色分けによる視覚的な区別（職歴: 青、学歴: 緑）
+- 現職はパルスアニメーションで強調
+- **Framer Motion** によるスクロールアニメーション
+
+### 資格・受賞セクション
+- 認証情報へのリンク付きカード表示
+- Oracle、AWS Credly などの外部認証ページへ遷移
+
+### ブログ機能
+- **MDX** によるMarkdownベースの記事管理
+- シンタックスハイライト（rehype-highlight）
+- 読了時間の自動計算
+- タグによる分類
+
+### SEO対策
+- 動的OG画像生成
+- sitemap.xml / robots.txt 自動生成
+- メタデータの最適化
+
+## 技術スタック
+
+| カテゴリ | 技術 |
+|----------|------|
+| フレームワーク | Next.js 16.1.1 (App Router) |
+| UI | React 19 |
+| 言語 | TypeScript |
+| スタイリング | Tailwind CSS v4 |
+| i18n | next-intl |
+| コンテンツ | MDX (next-mdx-remote) |
+| アニメーション | Framer Motion |
+| 分析 | Vercel Analytics, Google Analytics |
+
+## アーキテクチャ
+
+- **SSG（静的サイト生成）** による高速なページロード
+- **App Router** によるモダンなルーティング
+- コンポーネント駆動の設計
+- Zodによる型安全なバリデーション

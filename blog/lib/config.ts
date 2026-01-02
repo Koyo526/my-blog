@@ -8,15 +8,16 @@ export const siteConfig = {
   siteUrl: env.siteUrl,
   description: 'Portfolio & Blog',
   author: {
-    name: 'Your Name',
-    email: 'your@email.com',
+    name: 'Koyo Murakata',
+    email: '',
     twitter: 'yourhandle',
     github: 'yourgithub',
   },
   ogImage: `${env.siteUrl}/og-default.png`,
   links: {
-    github: 'https://github.com/yourgithub',
-    twitter: 'https://twitter.com/yourhandle',
+    github: 'https://github.com/Koyo526',
+    twitter: 'https://x.com/Momiji_koyo_51',
+    linkedin: 'https://www.linkedin.com/in/koyo-murakata-03b489241/',
   },
 } as const
 

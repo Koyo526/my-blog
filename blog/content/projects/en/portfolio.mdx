@@ -1,24 +1,67 @@
 ---
 name: "Portfolio Site"
-summary: "Personal portfolio site built with Next.js and Tailwind CSS"
-tech: ["Next.js", "TypeScript", "Tailwind CSS", "MDX"]
-publishedAt: "2024-01-01"
-github: "https://github.com/yourgithub/portfolio"
-url: "https://yoursite.com"
+summary: "Personal portfolio site built with Next.js 16 and Tailwind CSS v4"
+tech: ["Next.js", "React", "TypeScript", "Tailwind CSS", "MDX", "Framer Motion"]
+publishedAt: "2026-01-01"
+github: "https://github.com/Koyo526/my-blog"
+url: "https://localhost:3000"
 featured: true
 ---
 
 ## Overview
 
 This portfolio site is built using modern web technologies.
+Created through `New Year's Holiday Driven Development`.
 
-### Features
+## Key Features
 
-- **Multi-language** - Japanese and English support
-- **Dark mode** - System preference sync
-- **MDX** - Markdown-based content
-- **Responsive** - Mobile-friendly design
+### Internationalization (i18n)
+- Japanese/English switching using **next-intl**
+- URL-based routing (`/ja/`, `/en/`)
+- Content management via translation files
 
-### Technical Details
+### Dark Mode
+- Theme switching with **next-themes**
+- System preference synchronization
+- Manual toggle button
 
-Built with Next.js App Router and static site generation (SSG) for optimal performance.
+### Timeline Career Display
+- Chronological display of work and education history
+- Visual distinction by color (Work: blue, Education: green)
+- Current position highlighted with pulse animation
+- Scroll animations with **Framer Motion**
+
+### Certifications & Awards Section
+- Card display with links to credentials
+- Links to external certification pages (Oracle, AWS Credly, etc.)
+
+### Blog Features
+- **MDX**-based Markdown article management
+- Syntax highlighting (rehype-highlight)
+- Automatic reading time calculation
+- Tag-based categorization
+
+### SEO Optimization
+- Dynamic OG image generation
+- Automatic sitemap.xml / robots.txt generation
+- Optimized metadata
+
+## Tech Stack
+
+| Category | Technology |
+|----------|------------|
+| Framework | Next.js 16.1.1 (App Router) |
+| UI | React 19 |
+| Language | TypeScript |
+| Styling | Tailwind CSS v4 |
+| i18n | next-intl |
+| Content | MDX (next-mdx-remote) |
+| Animation | Framer Motion |
+| Analytics | Vercel Analytics, Google Analytics |
+
+## Architecture
+
+- Fast page loads with **SSG (Static Site Generation)**
+- Modern routing with **App Router**
+- Component-driven design
+- Type-safe validation with Zod
