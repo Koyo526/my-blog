@@ -1,11 +1,12 @@
 'use client'
 
 // components/home/visitor-count.tsx
-// 訪問者カウント表示コンポーネント
+// 訪問者カウント表示コンポーネント（グラスモーフィズムカードデザイン）
 
 import { useEffect, useState, useRef } from 'react'
 import { motion, useMotionValue, useTransform, animate, useInView } from 'framer-motion'
 import { useTranslations } from 'next-intl'
+import { Users } from 'lucide-react'
 
 export function VisitorCount() {
   const t = useTranslations('home')
@@ -70,24 +71,40 @@ export function VisitorCount() {
   }
 
   return (
-    <div ref={ref} className="py-8 text-center">
-      <motion.p
-        initial={{ opacity: 0, y: 10 }}
+    <div ref={ref} className="py-8 flex justify-center">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
+        whileHover={{ y: -2 }}
         transition={{ duration: 0.5 }}
-        className="text-sm text-foreground-muted"
+        className="inline-flex items-center gap-4 px-8 py-6
+          bg-card/60 backdrop-blur-md border border-border/50
+          rounded-xl shadow-lg
+          hover:shadow-xl
+          transition-shadow duration-300"
       >
         {isLoading ? (
-          <span className="inline-block w-20 h-4 bg-foreground-muted/20 rounded animate-pulse" />
+          <>
+            <div className="w-8 h-8 bg-foreground-muted/20 rounded-full animate-pulse" />
+            <div className="space-y-2">
+              <div className="w-24 h-3 bg-foreground-muted/20 rounded animate-pulse" />
+              <div className="w-16 h-8 bg-foreground-muted/20 rounded animate-pulse" />
+            </div>
+          </>
         ) : (
           <>
-            {t('visitorCount.label')}:{' '}
-            <span className="font-semibold tabular-nums">
-              {displayValue.toLocaleString()}
-            </span>
+            <Users className="w-8 h-8 text-accent" />
+            <div>
+              <p className="text-sm text-foreground-muted">
+                {t('visitorCount.label')}
+              </p>
+              <p className="text-3xl font-bold tabular-nums">
+                {displayValue.toLocaleString()}
+              </p>
+            </div>
           </>
         )}
-      </motion.p>
+      </motion.div>
     </div>
   )
 }
