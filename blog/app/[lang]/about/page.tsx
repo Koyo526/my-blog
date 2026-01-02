@@ -34,7 +34,7 @@ function AboutContent() {
         <SlideUp>
           <div className="space-y-4 mb-12">
             <h1 className="text-3xl md:text-4xl font-bold">{t('title')}</h1>
-            <p className="text-lg text-foreground-muted">{t('intro')}</p>
+            <p className="text-lg text-foreground-muted whitespace-pre-line">{t('intro')}</p>
           </div>
         </SlideUp>
 
