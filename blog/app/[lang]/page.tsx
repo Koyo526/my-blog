@@ -4,7 +4,7 @@
 import { setRequestLocale } from 'next-intl/server'
 import { locales, type Locale } from '@/lib/i18n'
 import { Container } from '@/components/common/container'
-import { Hero, FeaturedProjects, VisitorCount } from '@/components/home'
+import { Hero, FeaturedProjects, VisitorCount, Board } from '@/components/home'
 import { getFeaturedProjects } from '@/lib/projects'
 
 type Props = {
@@ -26,6 +26,7 @@ export default async function HomePage({ params }: Props) {
       <Hero />
       <VisitorCount />
       <FeaturedProjects projects={featuredProjects} />
+      <Board />
     </Container>
   )
 }

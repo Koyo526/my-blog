@@ -80,6 +80,23 @@
   "footer": {
     "copyright": "All rights reserved."
   },
+  "board": {
+    "title": "Message Board",
+    "form": {
+      "name": "Name",
+      "optional": "optional",
+      "comment": "Comment",
+      "placeholder": "Write a comment...",
+      "submit": "Post",
+      "submitting": "Posting..."
+    },
+    "noComments": "No comments yet",
+    "error": {
+      "loadFailed": "Failed to load comments",
+      "postFailed": "Failed to post comment",
+      "tooManyRequests": "Please try again in {seconds} seconds"
+    }
+  },
   "notFound": {
     "title": "Page Not Found",
     "description": "The page you are looking for does not exist or has been moved.",

@@ -80,6 +80,23 @@
   "footer": {
     "copyright": "All rights reserved."
   },
+  "board": {
+    "title": "掲示板",
+    "form": {
+      "name": "名前",
+      "optional": "省略可",
+      "comment": "コメント",
+      "placeholder": "コメントを入力...",
+      "submit": "投稿する",
+      "submitting": "投稿中..."
+    },
+    "noComments": "コメントはまだありません",
+    "error": {
+      "loadFailed": "コメントの読み込みに失敗しました",
+      "postFailed": "投稿に失敗しました",
+      "tooManyRequests": "{seconds}秒後に再度お試しください"
+    }
+  },
   "notFound": {
     "title": "ページが見つかりません",
     "description": "お探しのページは存在しないか、移動した可能性があります。",
