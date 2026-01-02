@@ -33,7 +33,7 @@ export const timelineData: TimelineEntry[] = [
       en: 'Master of Information Science',
     },
     organization: {
-      ja: '東北大学 大学院 情報科学研究科',
+      ja: '東北大学大学院 情報科学研究科',
       en: 'Tohoku University, Graduate School of Information Sciences',
     },
     period: {
@@ -66,6 +66,27 @@ export const timelineData: TimelineEntry[] = [
       en: 'Research on acceleration using off-chain protocols for cryptocurrency systems.',
     },
     tags: ['Cryptocurrency', 'Off-chain Protocols', 'Distributed Systems'],
+  },
+  {
+    id: 'edu-3',
+    type: 'education',
+    title: {
+      ja: 'Intensive English Language Program',
+      en: 'Intensive English Language Program',
+    },
+    organization: {
+      ja: 'University of Victoria',
+      en: 'University of Victoria',
+    },
+    period: {
+      start: '2022.08',
+      end: '2022.09',
+    },
+    description: {
+      ja: '英語コミュニケーションと文化の習得',
+      en: 'Learning English communication and culture',
+    },
+    tags: ['English', 'Communication', 'Culture'],
   },
 ]
 
