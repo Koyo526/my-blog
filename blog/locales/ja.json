@@ -1,6 +1,6 @@
 {
   "site": {
-    "name": "Momiji.dev🍁",
+    "name": "Koyo.dev🍁",
     "description": "ポートフォリオ & ブログ"
   },
   "nav": {
@@ -13,7 +13,7 @@
   "home": {
     "hero": {
       "greeting": "こんにちは",
-      "title": "Momiji.dev🍁",
+      "title": "Koyo.dev🍁",
       "description": "Software EngineerとPhotographerとRunnerの三足のわらじです",
       "cta": {
         "projects": "プロジェクトを見る",
